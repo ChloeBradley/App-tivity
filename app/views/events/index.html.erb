@@ -1,0 +1,11 @@
+<% @events.each do |event| %>
+  <h2><%= event["title"] %></h2>
+  <% if strip_tags(event["description"]) %>
+    <p><%= strip_tags(event["description"]).gsub('&amp;', '&') %></p>
+  <% end %>
+  <% if event["image"] && event["image"]["medium"]%>
+    <%= image_tag event["image"]["medium"]["url"] %>
+  <% end %>
+  <br/>
+  <hr/>
+<% end %>

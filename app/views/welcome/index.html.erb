@@ -1,0 +1,32 @@
+<head>
+  <video id="bgvid" autoplay="autoplay" muted="muted" preload="auto">
+     <source src="http://mazwai.com/system/posts/videos/000/000/151/original/gregory_latham--safran.mp4?1421862598" type="video/mp4">
+     <source src="http://mazwai.com/system/posts/videos/000/000/151/webm/gregory_latham--safran.webm?1421862598" type="video/webm">
+  </video>
+</head>
+
+  <body>
+    <h2 id="tagline" class="text-branding text-jumbo text-contrast row-space-1">
+      The Local Farm Stand
+    </h2>
+    <!-- <a href="/info/how_it_works" class="btn hide-sm btn-contrast btn-large btn-semi-transparent js-show-how-it-works -->
+  </body>
+
+
+
+
+
+<center>
+   <div class="form-group">
+    <%= form_tag events_path, method: "get" do %>
+
+      <%= label_tag :search, "Search", class: 'control-label' %>
+      <%= text_field_tag :search,"", autofocus: true %>
+
+      <%= label_tag :location, "Location", class: 'control-label' %>
+      <%= text_field_tag :location %>
+
+      <%= submit_tag "Find It", class: "btn btn-hover"  %>
+    <% end %>
+  </div>
+</center>
