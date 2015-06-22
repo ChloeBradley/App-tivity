@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+
     if params["search"].present?
       @conn = Faraday.new(url: "http://api.eventful.com")
       search_term = params["search"]
@@ -12,7 +13,7 @@ class EventsController < ApplicationController
       response = @conn.get do |req|
         req.url "/rest/events/search?location=#{location}&keywords=#{search_term}&app_key=ZFL4M9WfctW6Sv8G"
         req.headers['Content-Type'] = 'application/json'
-      end
+    end
 
       data = Hash.from_xml(response.body).to_json
 
@@ -21,7 +22,10 @@ class EventsController < ApplicationController
     else
       @events = []
     end
-binding.pry
+    @hash = Gmaps4rails.build_markers(@events) do |event, marker|
+    marker.lat event["latitude"]
+    marker.lng event["longitude"]
+  end
   end
 
   # GET /events/1
@@ -84,8 +88,8 @@ binding.pry
       @event = Event.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # # Never trust parameters from the scary internet, only allow the white list through.
     # def event_params
-    #   params.require(:events).permit(:place, :type, :date)
+    #   params.require(:events).permit(:venue_address, :latitude, :longitude)
     # end
 end

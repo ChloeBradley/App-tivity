@@ -10,10 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  */
-
+ @import "bourbon";
+ @import "events.scss";
+ @import "scaffolds.scss";
  @import url(//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css);
 
  video#bgvid {
@@ -27,21 +28,23 @@
  z-index: -100;
  -webkit-transform: translateX(-50%) translateY(-50%);
  transform: translateX(-50%) translateY(-50%);
- background: url(Safran.mp4) no-repeat;
+ background: url(glaciartopp.mp4) no-repeat;
  background-size: cover;
  }
+//
+//  h1 {
+//   font-family: $helvetica;
+//   font-size: golden-ratio(14px,  1);
+// }
 
 
- h2 {
+ body {
    display: block;
+   @include margin(0.83em, 0px);
    text-align: center;
-   font-size: 1.5em;
-   -webkit-margin-before: 0.83em;
-   -webkit-margin-after: 0.83em;
-   -webkit-margin-start: 0px;
-   -webkit-margin-end: 0px;
+   font-size: 2.5em;
    font-weight: bold;
-   font-family: Oldtown, fantasy;
+   font-family: Fixed, monospace;
  }
 
  body.semi-transparent {
@@ -77,7 +80,7 @@
 }
 
 .btn:default {
-  
+
 }
 
  .row-space-1 {
@@ -91,8 +94,8 @@
   text-transform: uppercase;
 }
 .text-jumbo {
-  font-size: 30px;
-  font-weight: 700;
+  font-size: 60px;
+  font-weight: 1400;
 }
 
 .btn {
@@ -136,4 +139,48 @@ padding-bottom: 30px;
 .control-label {
   color: #ffe;
   font-family: arial;
+}
+
+//red button maybe
+
+
+.myButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
+	box-shadow:inset 0px 1px 0px 0px #cf866c;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d0451b), color-stop(1, #bc3315));
+	background:-moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315',GradientType=0);
+	background-color:#d0451b;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:2px solid #942911;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Courier New;
+	font-size:16px;
+	font-weight:bold;
+	padding:12px 17px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #854629;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
+	background:-moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+	background:-webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+	background:-o-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+	background:-ms-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+	background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b',GradientType=0);
+	background-color:#bc3315;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
 }
