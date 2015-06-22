@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+ruby '2.2.0'
+
 gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'html5-boilerplate', '~> 2.1.0'
 
@@ -49,3 +51,5 @@ end
 gem 'geocoder', '~> 1.2.9'
 gem 'gmaps4rails'
 gem 'bourbon'
+
+gem 'rails_12factor', group: :production
