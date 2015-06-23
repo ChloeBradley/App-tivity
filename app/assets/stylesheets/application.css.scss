@@ -14,7 +14,7 @@
  */
  @import "bourbon";
  @import "events.scss";
- @import "scaffolds.scss";
+ @import "scaffolds.css.scss";
  @import url(//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css);
 
  video#bgvid {
@@ -31,12 +31,17 @@
  background: url(glaciartopp.mp4) no-repeat;
  background-size: cover;
  }
-//
-//  h1 {
-//   font-family: $helvetica;
-//   font-size: golden-ratio(14px,  1);
-// }
 
+
+.descriptionStyle {
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 18px;
+  line-height: 2.0;
+}
 
  body {
    display: block;
@@ -191,4 +196,14 @@ padding-bottom: 30px;
   padding-bottom: 0px 43px;
   margin-top: 79px;
   margin-bottom: 79px;
+}
+
+body {
+  background-image: url('https://download.unsplash.com/reserve/tdedkQnQGCgIhk9eoEkP_DSC_0983.JPG');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.opc-body {
+  opacity: 0.9;
 }
