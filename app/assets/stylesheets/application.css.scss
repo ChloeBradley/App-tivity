@@ -31,16 +31,28 @@
  background: url(glaciartopp.mp4) no-repeat;
  background-size: cover;
  }
-
+ .resultsTitle {
+  text-align: left;
+  padding-right: 15px;
+ }
 
 .descriptionStyle {
+  padding-right: 15px;
   font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  text-align: center;
+  text-align: left;
   box-sizing: border-box;
   margin-top: 0;
   margin-bottom: 15px;
   font-size: 18px;
   line-height: 2.0;
+}
+hr {
+height: 12px;
+border: 0;
+box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+.image-styling {
+    margin-top: 2.5%;
 }
 
  body {
@@ -77,6 +89,15 @@
 background: #000;
 background: rgba(0,0,0,0.6);
 position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+padding-top: 30px;
+padding-bottom: 30px;
+}
+.form-group2 {
+background: #000;
+background: rgba(0,0,0,0.6);
 bottom: 0;
 left: 0;
 right: 0;
@@ -130,12 +151,11 @@ padding-bottom: 30px;
 
 .container-fluid {
   margin: 0 auto;
-  width: 56%;
-  border: 3px solid lightgrey;
+  width: 70%;
+  // border: 3px solid lightgrey;
   background-color: rgba(255, 255, 255, 0.7);
   box-shadow: 0px 0px 75px rgb(52, 26, 34);
-  padding: 0px 43px;
-  padding-bottom: 0px 43px;
+  padding: 0px 0px 43px 0px;
   margin-top: 79px;
   margin-bottom: 79px;
 }
@@ -145,12 +165,13 @@ padding-bottom: 30px;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  padding-bottom: 20px;
 }
 
 .discoveryContainer {
   margin-top: 32.8%;
   overflow: auto;
-  background-color: #fff;
+  background-color: #ffe;
   position: absolute;
   left: 0;
   right: 0;
@@ -172,4 +193,8 @@ padding-bottom: 30px;
   font-family: monospace;
   line-height: 38px;
   font-size: 15px;
+}
+
+.eventsIndex {
+  margin-top: 8%;
 }
