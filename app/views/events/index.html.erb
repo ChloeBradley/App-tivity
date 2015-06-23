@@ -9,25 +9,27 @@
 <body class="opc-body">
   <div class="container-fluid">
 
-       <div class="form-group2">
-        <%= form_tag events_path, method: "get" do %>
+     <div class="form-group2">
+      <%= form_tag events_path, method: "get" do %>
 
-          <%= label_tag :search, "Search", class: 'control-label' %>
-          <%= text_field_tag :search,"", autofocus: true %>
+        <%= label_tag :search, "Search", class: 'control-label' %>
+        <%= text_field_tag :search,"", autofocus: true  %>
 
-          <%= label_tag :location, "Location", class: 'control-label' %>
-          <%= text_field_tag :location %>
+        <%= label_tag :location, "Location", class: 'control-label' %>
+        <%= text_field_tag :location %>
 
-          <%= submit_tag "Make My Day", class: "myButton"  %>
-        <% end %>
-      </div>
+        <%= submit_tag "Make My Day", class: "myButton"  %>
+      <% end %>
+    </div>
 
-  <h3>Your search returned <%= @events.count%> results </h3>
+    <h3>Your search returned <%= @events.count%> results </h3>
     <hr>
+
     <% @events.each do |event| %>
       <% if event["title"] && event["description"].present? %>
 
-        <div class="row">
+       <div class="row">
+
           <div class="col-md-3 image-styling">
             <% if event["image"] && event["image"]["medium"]%>
               <%=link_to image_tag event["image"]["medium"]["url"] %>
@@ -45,16 +47,19 @@
               </div>
             <% end %>
           </div><!--end col-->
+
         </div><!--end row-->
+
       <% end %> <!-- ends title and description present-->
     <% end %> <!--end of do loop -->
+  </div> <!-- end container-fluid -->
+
+
+  <div style='width: 1088.99px; margin-left: auto; margin-right: auto;'>
+    <div id="map" style='width: 1088.99px; height: 600px; border: 4px solid black;'></div>
   </div>
+
 </body>
-
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px; border-radius: 12px; border: 4px solid black;'></div>
-</div>
-
 
     <script type="text/javascript">
       handler = Gmaps.build('Google');

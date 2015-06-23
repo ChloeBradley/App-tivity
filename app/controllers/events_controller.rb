@@ -20,12 +20,15 @@ class EventsController < ApplicationController
       # @ events is an array of event hashes
       @events = JSON.parse(data).first[1]["events"]["event"]
     else
+binding.pry
       @events = []
     end
 
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       marker.lat event["latitude"]
       marker.lng event["longitude"]
+      marker.infowindow "<h3>" + event["title"] + "</h3><p>" + event["venue_address"] + "</p>"
+      marker.title event["title"]
     end
   end
 
