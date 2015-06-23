@@ -140,18 +140,15 @@ padding-bottom: 30px;
   margin-bottom: 79px;
 }
 
-body {
-  background-image: url('https://download.unsplash.com/reserve/tdedkQnQGCgIhk9eoEkP_DSC_0983.JPG');
+.opc-body {
+  opacity: 0.9;  background-image: url('https://download.unsplash.com/uploads/14114036359651bd991f1/b3ed8fdf');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
-.opc-body {
-  opacity: 0.9;
-}
 
 .discoveryContainer {
-  margin-top: 34.6%;
+  margin-top: 32.8%;
   overflow: auto;
   background-color: #fff;
   position: absolute;
@@ -170,4 +167,9 @@ body {
 .post-title {
     font-weight: bold;
     font-size: 200%;
+}
+.pg {
+  font-family: monospace;
+  line-height: 38px;
+  font-size: 15px;
 }
