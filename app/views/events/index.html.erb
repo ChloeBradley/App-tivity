@@ -1,6 +1,7 @@
 <script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>
 <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"type='text/javascript'></script>
+<script src="assets/application.js" type='text/javascript'></script>
 
 <body class="opc-body">
   <h2 id="tagline" class="text-branding text-jumbo text-contrast row-space-1 eventsIndex">
@@ -37,17 +38,22 @@
 
           <div class="col-md-3 image-styling">
             <% if event["image"] && event["image"]["medium"]%>
-              <%=link_to image_tag event["image"]["medium"]["url"] %>
+              <a href="<%= event["url"] %>" target="_blank">
+                <%=image_tag event["image"]["medium"]["url"] %>
+              </a>
             <% end %>
           </div><!--end col-->
 
           <div class="col-md-9">
             <div class="resultsTitle">
              <h1> <%= event["title"] %> </h1>
+             <% date = DateTime.parse(event["start_time"]) %>
+             <% formatted_date = date.strftime("%A, %d %b %Y %l:%M %p") %>
+             <h2> <%= formatted_date %> </h2>
             </div>
 
             <% if strip_tags(event["description"]) %>
-              <div class="descriptionStyle">
+              <div class="descriptionStyle more">
                  <%= strip_tags(event["description"]).gsub('&amp;', '&').gsub('&quot;', '"') %>
               </div>
             <% end %>
@@ -77,15 +83,40 @@
       });
     </script>
 
-    <script type="text/javascript">
-      $(document).ready(function() {
+    <script>
 
+    $(document).ready(function() {
+           var showChar = 300;
+           var ellipsestext = "...";
+           var moretext = "more";
+           var lesstext = "less";
+           $('.more').each(function() {
+                   var content = $(this).html();
 
-        $('.descriptionStyle').readmore({
-         speed: 75,
-         lessLink: '<a href="#">Read less</a>',
-         collapsedHeight: 50
-        });
+                   if(content.length > showChar) {
 
-      });
+                           var c = content.substr(0, showChar);
+                           var h = content.substr(showChar-1, content.length - showChar);
+
+                           var html = c + '<span class="moreelipses">'+ellipsestext+'</span>&nbsp;<span class="morecontent"><span>' + h + '</span> &nbsp;<a href="" class="morelink">'+moretext+'</a></span>';
+
+                           $(this).html(html);
+                   }
+
+           });
+
+           $(".morelink").click(function(){
+                   if($(this).hasClass("less")) {
+                           $(this).removeClass("less");
+                           $(this).html(moretext);
+                   } else {
+                           $(this).addClass("less");
+                           $(this).html(lesstext);
+                   }
+                   $(this).parent().prev().toggle();
+                   $(this).prev().toggle();
+                   return false;
+           });
+    });
+
     </script>

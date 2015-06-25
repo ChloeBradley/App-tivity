@@ -9,6 +9,9 @@ class EventsController < ApplicationController
       @conn = Faraday.new(url: "http://api.eventful.com")
       search_term = params["search"]
       location = params["location"]
+      stop = params["stop_time"]
+      start = params["start_time"]
+      venue_url = params["venue_url"]
 
       response = @conn.get do |req|
         req.url "/rest/events/search?location=#{location}&keywords=#{search_term}&app_key=ZFL4M9WfctW6Sv8G"
@@ -16,12 +19,11 @@ class EventsController < ApplicationController
     end
 
       data = Hash.from_xml(response.body).to_json
-
+      
       # @ events is an array of event hashes
     if JSON.parse(data).first[1]["events"] == nil
       @events = "No events Found"
     else
-
       @events = JSON.parse(data).first[1]["events"]["event"]
 
       @hash = Gmaps4rails.build_markers(@events) do |event, marker|
