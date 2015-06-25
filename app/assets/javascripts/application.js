@@ -18,6 +18,22 @@
 //= require gmaps/google
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // $(document).ready(function() {
 //   $.ajax({
 //     url: "http://api.eventful.com/json/events/search?location=boulder,colorado&keywords=food&app_key=ZFL4M9WfctW6Sv8G",

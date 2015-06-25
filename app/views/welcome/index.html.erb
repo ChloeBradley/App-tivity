@@ -14,7 +14,6 @@
             <div class="columns small-4 "> Leading an active life, no matter where you are.</div>
         </div>
     </div>
-    <!-- <a href="/info/how_it_works" class="btn hide-sm btn-contrast btn-large btn-semi-transparent js-show-how-it-works -->
   </body>
 
 
@@ -23,10 +22,10 @@
     <%= form_tag events_path, method: "get" do %>
 
       <%= label_tag :search, "Search", class: 'control-label' %>
-      <%= text_field_tag :search,"", autofocus: true %>
+      <%= text_field_tag :search,"", placeholder: "type something...", autofocus: true %>
 
       <%= label_tag :location, "State", class: 'control-label' %>
-      <%= text_field_tag :location %>
+      <%= text_field_tag :location,"", placeholder: "pick a place..." %>
 
       <%= submit_tag "Make My Day", class: "myButton"  %>
     <% end %>
